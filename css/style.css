@@ -12,7 +12,7 @@ ul, ol { list-style-type: none;}
 /* 헤더구역 고정시키기 */
 #header {  height:60px; }
 #header.on { position:fixed; left:0; right:0; z-index:9999999;
-    top:0;}        
+    top:0;  }        
 #header .row {max-width:768px; margin:0 auto; 
     display:flex; justify-content: space-between; align-items: center;
     background:#33353f; }
@@ -33,9 +33,10 @@ ul, ol { list-style-type: none;}
 /* 서브페이지 타이틀 */    
 #content .contTit { display:grid; grid-template-columns: 45px auto;
     background:#fff }
+#content .prev { position:relative; z-index:99999 }
 #content .prev img { width:100% }
 #content h2 { text-align:center; font-size:24px; font-weight:bold;
-    height:50px; line-height:50px; margin-left:-45px }
+    height:50px; line-height:50px; margin-left:-45px; }
 
 
 
@@ -108,14 +109,14 @@ div.serch_wrap > div:last-child { background:#ff912f }
 
 
 #footer { background:#222; color:#fff; padding:15px 5px 0px }
-#footer .quickMenu { position:fixed; bottom:0; left:0; right:0; height:50px; 
+#footer .quickMenu { position:fixed; bottom:0; left:0; right:0; height:42px; 
     z-index:999999; }
 #footer .quickMenu .row { display:flex; max-width:768px; margin:0 auto }
 #footer .quickMenu a { display:block; width:33.33%;     
     border-right: 1px solid #28292c; background:#333;
     text-align:center; padding:13px 0px; font-size:12px }
 #footer .csCenter { display:flex; padding:25px 0px 20px; position:relative;
-    margin-bottom:50px }
+    margin-bottom:42px }
 #footer .csCenter .contact { width:60%; font-size:20px; font-weight:bold }
 #footer .csCenter .contact img { width:23px }
 #footer .csCenter .privacy { width:40%; font-size:12px }
@@ -132,10 +133,14 @@ div.serch_wrap > div:last-child { background:#ff912f }
 
 /* 진료과(medicalList.html) */
 .medicalContent { background:#555 }
-.medicalContent ul { display:grid; grid-template-columns: 50% 50%; 
+/* .medicalContent ul { display:grid; grid-template-columns: 50% 50%; 
     padding:10px 5px }
 .medicalContent ul li { background:#fff; margin:5px; padding:10px;
-    border-radius:5px }
+    border-radius:5px } */
+
+.medicalContent ul { display:flex; padding:10px 5px; flex-wrap: wrap; }
+.medicalContent ul li { background:#fff; margin:5px; padding:10px;
+    border-radius:5px; flex:250px;  }    
 
 
 /* 가정의학과(part1.html) */
