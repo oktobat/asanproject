@@ -11,8 +11,9 @@
   );
 
   $("#container").on("click", ".medicalContent .mediList a", function () {
-    var url = this.href;
-    alert(url);
+    var url = $(this).attr("href");
+    var part = $(this).attr("id");
+    // alert(url);
     $("#container > #content").remove();
     $("#container").load(url + " #content");
 
@@ -26,10 +27,9 @@
         }
       },
       success: function (data) {
-        var usedata = data[newpart1];
-        var newContent;
+        var usedata = data[part];
+        var newContent = "";
         function dataPrint() {
-          newContent = "";
           for (var i in usedata) {
             newContent += `<li><div class='img'><img src='${usedata[i].photo}' alt=''></div>`;
             newContent += `<div class='doctorInfo'><strong>${usedata[i].name}</strong>`;
