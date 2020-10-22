@@ -1,7 +1,7 @@
 (function ($) {
   $("#wrap").on(
     "click",
-    "#header h1 a, #footer .quickMenu a, .mainContent #step_area a, .contTit .prev a",
+    "#header h1 a, #footer .quickMenu a, .mainContent #step_area a,.medicalContent .mediList a, .contTit .prev a",
     function () {
       var url = this.href;
       $("#container > #content").remove();
@@ -10,8 +10,9 @@
     }
   );
 
-  $("#wrap").on("click", ".medicalContent .mediList a", function () {
+  $("#container").on("click", ".medicalContent .mediList a", function () {
     var url = this.href;
+    alert(url);
     $("#container > #content").remove();
     $("#container").load(url + " #content");
 
@@ -25,9 +26,10 @@
         }
       },
       success: function (data) {
-        var usedata = data.part1;
+        var usedata = data[newpart1];
+        var newContent;
         function dataPrint() {
-          var newContent = "";
+          newContent = "";
           for (var i in usedata) {
             newContent += `<li><div class='img'><img src='${usedata[i].photo}' alt=''></div>`;
             newContent += `<div class='doctorInfo'><strong>${usedata[i].name}</strong>`;
